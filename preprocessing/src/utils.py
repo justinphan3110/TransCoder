@@ -52,7 +52,8 @@ def output_all_tokenized_results(docs, f_tok):
             continue
         else:
             content_tokenized = ' '.join(content_tokenized)
-            s = f"<DOCUMENT_ID=\"{path}\"> {content_tokenized} </DOCUMENT>"
+            content_tokenized = ''.join(content_tokenized.split('▁'))
+            s = f"{content_tokenized}"
             # for some reason sometimes, some caracters of s
             # cannot be encoded into utf-8 and it failed to print, so use try/catch
             try:
